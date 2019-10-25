@@ -5,8 +5,12 @@
 
 from functools import wraps
 import tensorflow as tf
-from tensorflow.contrib.framework import is_tensor
-from collections import Sequence
+
+if tf.__version__ >= '2.0.0':
+    is_tensor = tf.is_tensor
+else:
+    from tensorflow.contrib.framework import is_tensor
+
 
 def vararg_decorator(f):
     '''Decorator to handle variable argument decorators.'''
