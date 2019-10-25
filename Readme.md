@@ -18,7 +18,7 @@ pip install tfmpl
 
 Requirements
  - Python 3.5/3.6
- - TensorFlow 1.x
+ - TensorFlow 1.x/2.x
  - matplotlib 2.2.0
 
 ### Build status

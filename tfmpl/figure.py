@@ -4,6 +4,12 @@
 # ============================================================
 
 import tensorflow as tf
+
+if tf.__version__ >= '2.0.0':
+    py_func = tf.py_function
+else:
+    from tensorflow import py_func
+
 import traceback
 import numpy as np
 from functools import wraps
@@ -60,7 +66,7 @@ def figure_tensor(func, **tf_pyfunc_kwargs):
                 print('-'*20)
                 raise
 
-        return tf.py_func(pyfnc_callee, tf_args.tensor_args, tf.uint8, name=name, **tf_pyfunc_kwargs)
+        return py_func(pyfnc_callee, tf_args.tensor_args, tf.uint8, name=name, **tf_pyfunc_kwargs)
     return wrapper
 
 @vararg_decorator
@@ -135,5 +141,5 @@ def blittable_figure_tensor(func, init_func, **tf_pyfunc_kwargs):
                 print('-'*20)
                 raise
 
-        return tf.py_func(pyfnc_callee, tf_args.tensor_args, tf.uint8, name=name, **tf_pyfunc_kwargs)
+        return py_func(pyfnc_callee, tf_args.tensor_args, tf.uint8, name=name, **tf_pyfunc_kwargs)
     return wrapper
