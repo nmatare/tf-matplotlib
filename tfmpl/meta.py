@@ -3,7 +3,9 @@
 # Licensed under MIT License
 # ============================================================
 
+from collections import Sequence
 from functools import wraps
+
 import tensorflow as tf
 
 if tf.__version__ >= '2.0.0':

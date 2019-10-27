@@ -17,6 +17,7 @@ from functools import wraps
 from tfmpl.meta import vararg_decorator, as_list
 from tfmpl.meta import PositionalTensorArgs
 
+
 def figure_buffer(figs):
     '''Extract raw image buffer from matplotlib figure shaped as 1xHxWx3.'''
     assert len(figs) > 0, 'No figure buffers given. Forgot to return from draw call?'
